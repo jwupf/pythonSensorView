@@ -1,4 +1,4 @@
-import htmlFile
+import libs.html.htmlFile as htmlFile
 import unittest
 
 
