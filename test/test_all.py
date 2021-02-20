@@ -2,12 +2,20 @@ import libs.html.htmlFile as htmlFile
 import unittest
 
 
-@htmlFile.asHtmlList
-def getList():    
-    return [2,3]
+class TestHtmlHeader(unittest.TestCase):
+    def test_htmlHeaderHasHeadTag(self):
+        head = htmlFile.getHtmlHeader()
+        self.assertRegex(head,"^<head>.*</head>")
 
-class TestAddMethod(unittest.TestCase):
+    def test_htmlHeaderHasTitleTag(self):
+        head = htmlFile.getHtmlHeader()
+        self.assertRegex(head,"^<head><title>.*</title>")
 
+    def test_htmlHeaderHasNonEmptyTitle(self):
+        head = htmlFile.getHtmlHeader()
+        self.assertRegex(head,"<title>.+</title>")
+
+class TestHtmlDocument(unittest.TestCase):
     def test_htmlPageHasDocType(self):
         page = htmlFile.getHtmlPage()
         self.assertRegex(page,"^<!DOCTYPE html>")
@@ -18,19 +26,16 @@ class TestAddMethod(unittest.TestCase):
     
     def test_htmlPageHasHeadTag(self):
         page = htmlFile.getHtmlPage()
-        self.assertRegex(page,".*<html><head>.*</head>")
-
-    def test_htmlPageHasTitleTag(self):
-        page = htmlFile.getHtmlPage()
-        self.assertRegex(page,".*<head><title>.*</title>")
-
-    def test_htmlPageHasNonEmptyTitle(self):
-        page = htmlFile.getHtmlPage()
-        self.assertRegex(page,"<title>.+</title>")
+        self.assertRegex(page,".*<html><head>")
 
     def test_htmlPageHasBodyTag(self):
         page = htmlFile.getHtmlPage()
         self.assertRegex(page,".*</head><body>.*</body>")
+
+class TestHtmlListExtender(unittest.TestCase):
+    @htmlFile.asHtmlList
+    def getList():    
+        return [2,3]
 
     def test_htmlList(self):
         self.assertEqual(htmlFile.getListAsHtml(), "<ul><li>2</li><li>3</li></ul>")
