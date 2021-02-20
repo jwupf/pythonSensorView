@@ -11,11 +11,3 @@ def asHtmlList(func):
         return htmlString
     globals()[func.__name__ + "AsHtml"] = innerFunc
     return func
-
-
-@asHtmlList
-def getList():    
-    return [2,3]
-
-def getValue():
-    return 3
