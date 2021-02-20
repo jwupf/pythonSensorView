@@ -1,5 +1,16 @@
 def getHtmlPage():
-    return "<!DOCTYPE html>" + "<html>" + "</html>"
+    html = ""
+    html += "<!DOCTYPE html>"
+    html += "<html>"
+    html += "<head>"
+    html += "<title>"
+    html += "&nspb" # title ought to be non empty
+    html += "</title>"
+    html += "</head>"
+    html += "<body>"
+    html += "</body>"
+    html += "</html>"
+    return html
 
 
 def asHtmlList(func):
