@@ -15,6 +15,11 @@ class TestHtmlHeader(unittest.TestCase):
         head = htmlFile.getHtmlHeader()
         self.assertRegex(head,"<title>.+</title>")
 
+    def test_htmlHeaderHasGivenTitle(self):
+        title = "this is the page title"
+        head = htmlFile.getHtmlHeader(title)
+        self.assertRegex(head,f"<title>({title})</title>")
+
 class TestHtmlDocument(unittest.TestCase):
     def test_htmlPageHasDocType(self):
         page = htmlFile.getHtmlPage()
@@ -31,6 +36,12 @@ class TestHtmlDocument(unittest.TestCase):
     def test_htmlPageHasBodyTag(self):
         page = htmlFile.getHtmlPage()
         self.assertRegex(page,".*</head><body>.*</body>")
+
+    def test_htmlPageHasGivenTitle(self):
+        title = "this is the page title"
+        head = htmlFile.getHtmlPage(title)
+        self.assertRegex(head,f"<title>({title})</title>")
+
 
 class TestHtmlListExtender(unittest.TestCase):
     @htmlFile.asHtmlList

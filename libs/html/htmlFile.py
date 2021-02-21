@@ -1,16 +1,16 @@
 
-def getHtmlHeader():
+def getHtmlHeader(title = "&nspb"):
     head = "<head>"
     head += "<title>"
-    head += "&nspb" # title ought to be non empty
+    head += title # title ought to be non empty
     head += "</title>"
     head += "</head>"
     return head
 
-def getHtmlPage():
+def getHtmlPage(title = "&nspb"):
     html = "<!DOCTYPE html>"
     html += "<html>"
-    html += getHtmlHeader()
+    html += getHtmlHeader(title)
     html += "<body>"
     html += "</body>"
     html += "</html>"
