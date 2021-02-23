@@ -1,5 +1,7 @@
 # PythonSensorView
 
+[![Python application](https://github.com/jwupf/pythonSensorView/actions/workflows/python-app.yml/badge.svg?branch=main)](https://github.com/jwupf/pythonSensorView/actions/workflows/python-app.yml)
+
 I hope that the code in the repo becomes something that reads, processes and presents sensor data.
 
 The current plan is to run this code on a RaspberryPI B(no +), because it is collecting dust ...
