@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"pythonTestExplorer.testFramework": "unittest"
+		"pythonTestExplorer.testFramework": "unittest",
+		"python.linting.flake8Enabled": true
 	}
 }
