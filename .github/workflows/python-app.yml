@@ -33,6 +33,6 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pythons unittest
       run: |        
-        python -m unittest test.test_htmlListExtender
-        python -m unittest test.test_htmlHeader      
-        python -m unittest test.test_htmlDocument
+        python -m unittest -v test.test_htmlListExtender
+        python -m unittest -v test.test_htmlHeader      
+        python -m unittest -v test.test_htmlDocument
