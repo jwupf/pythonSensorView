@@ -2,7 +2,7 @@ import libs.html.htmlFile as htmlFile
 import unittest
 
 
-class TestHtmlDocument(unittest.TestCase):
+class TestHtmlFile(unittest.TestCase):
     def test_htmlPageHasDocType(self):
         page = htmlFile.getHtmlPage()
         self.assertRegex(page, "^<!DOCTYPE html>")
