@@ -1,4 +1,7 @@
 class Document:
     def __init__(self, title = None):
-        self.title = title
+        self.Title = title    
+        self.Chapters = []
     
+    def addChapter(self, chapter):
+        self.Chapters.append(chapter)
