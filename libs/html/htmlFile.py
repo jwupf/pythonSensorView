@@ -8,12 +8,19 @@ def getHtmlHeader(title="&nspb"):
     return head
 
 
+def getHtmlBody(document):
+    body = "<body>"
+    for chapter in document.Chapters:
+        body += f"<h1>{chapter.Title}</h1>"
+    body += "</body>"
+    return body
+
+
 def getHtmlPage(document):
     html = "<!DOCTYPE html>"
     html += "<html>"
-    html += getHtmlHeader(document.Title)
-    html += "<body>"
-    html += "</body>"
+    html += getHtmlHeader(document.Title)    
+    html += getHtmlBody(document)
     html += "</html>"
     return html
 
