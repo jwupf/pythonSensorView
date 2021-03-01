@@ -1,25 +1,29 @@
-import libs.html.htmlFile as htmlFile
+from libs.document.Document import Document
+from libs.html.htmlFile import getHtmlPage
 import unittest
 
 
 class TestHtmlFile(unittest.TestCase):
+    def setUp(self):
+        self.Title = "this is the page title"
+        self.Document = Document(self.Title)
+
     def test_htmlPageHasDocType(self):
-        page = htmlFile.getHtmlPage()
+        page = getHtmlPage(self.Document)
         self.assertRegex(page, "^<!DOCTYPE html>")
 
     def test_htmlPageHasHtmlTag(self):
-        page = htmlFile.getHtmlPage()
+        page = getHtmlPage(self.Document)
         self.assertRegex(page, ".*<html>.*</html>")
 
     def test_htmlPageHasHeadTag(self):
-        page = htmlFile.getHtmlPage()
+        page = getHtmlPage(self.Document)
         self.assertRegex(page, ".*<html><head>")
 
     def test_htmlPageHasBodyTag(self):
-        page = htmlFile.getHtmlPage()
+        page = getHtmlPage(self.Document)
         self.assertRegex(page, ".*</head><body>.*</body>")
 
     def test_htmlPageHasGivenTitle(self):
-        title = "this is the page title"
-        head = htmlFile.getHtmlPage(title)
-        self.assertRegex(head, f"<title>({title})</title>")
+        head = getHtmlPage(self.Document)
+        self.assertRegex(head, f"<title>({self.Title})</title>")

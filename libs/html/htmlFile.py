@@ -8,10 +8,10 @@ def getHtmlHeader(title="&nspb"):
     return head
 
 
-def getHtmlPage(title="&nspb"):
+def getHtmlPage(document):
     html = "<!DOCTYPE html>"
     html += "<html>"
-    html += getHtmlHeader(title)
+    html += getHtmlHeader(document.Title)
     html += "<body>"
     html += "</body>"
     html += "</html>"
