@@ -1,4 +1,3 @@
-
 def getHtmlHeader(title="&nspb"):
     head = "<head>"
     head += "<title>"
@@ -19,7 +18,7 @@ def getHtmlBody(document):
 def getHtmlPage(document):
     html = "<!DOCTYPE html>"
     html += "<html>"
-    html += getHtmlHeader(document.Title)    
+    html += getHtmlHeader(document.Title)
     html += getHtmlBody(document)
     html += "</html>"
     return html

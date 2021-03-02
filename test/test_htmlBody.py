@@ -5,9 +5,9 @@ import unittest
 
 
 class TestHtmlBody(unittest.TestCase):
-    def setUp(self):        
+    def setUp(self):
         self.Document = Document()
-        self.DocumentWithChapter = Document()        
+        self.DocumentWithChapter = Document()
 
         self.FirstChapterTitle = "this is the first chapter title"
         self.FirstChapterText = "this is text in the first chapter"
@@ -16,9 +16,8 @@ class TestHtmlBody(unittest.TestCase):
 
         self.SecondChapterTitle = "this is the second chapter title"
         self.SecondChapterText = "this is text in the second chapter"
-        self.SecondChapter = Chapter(self.SecondChapterTitle)     
+        self.SecondChapter = Chapter(self.SecondChapterTitle)
         self.DocumentWithChapter.addChapter(self.SecondChapter)
-
 
     def test_htmlPageHasBodyTag(self):
         page = getHtmlBody(self.Document)
@@ -26,8 +25,10 @@ class TestHtmlBody(unittest.TestCase):
 
     def test_htmlPageHasFirstChapter(self):
         page = getHtmlBody(self.DocumentWithChapter)
-        self.assertRegex(page, f"<body><h1>{self.FirstChapterTitle}</h1>.*</body>")
+        self.assertRegex(
+            page, f"<body><h1>{self.FirstChapterTitle}</h1>.*</body>")
 
     def test_htmlPageHasSecondChapter(self):
         page = getHtmlBody(self.DocumentWithChapter)
-        self.assertRegex(page, f"<body><h1>.*</h1>.*<h1>{self.SecondChapterTitle}</h1>.*</body>")
+        self.assertRegex(
+            page, f"<body><h1>.*</h1>.*<h1>{self.SecondChapterTitle}</h1>.*</body>")
