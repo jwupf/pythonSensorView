@@ -7,5 +7,29 @@
 	"settings": {
 		"pythonTestExplorer.testFramework": "unittest",
 		"python.linting.flake8Enabled": true
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [			
+			{
+				"name": "Python: Aktuelle Datei",
+				"type": "python",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal"
+			}
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "Run GitHub Action on push",
+				"type": "shell",
+				"command": "act push",
+				"problemMatcher": [],
+				"detail": "This needs act-cli installed, see: https://github.com/nektos/act"
+			}
+		]
 	}
 }
