@@ -11,6 +11,8 @@ def getHtmlBody(document):
     body = "<body>"
     for chapter in document.Chapters:
         body += f"<h1>{chapter.Title}</h1>"
+        for text in chapter.Text:
+            body += text
     body += "</body>"
     return body
 

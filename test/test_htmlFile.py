@@ -1,5 +1,4 @@
 from libs.document.Document import Document
-from libs.document.Chapter import Chapter
 from libs.html.htmlFile import getHtmlPage
 import unittest
 

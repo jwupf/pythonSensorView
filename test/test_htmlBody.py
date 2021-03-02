@@ -10,12 +10,13 @@ class TestHtmlBody(unittest.TestCase):
         self.DocumentWithChapter = Document()
 
         self.FirstChapterTitle = "this is the first chapter title"
-        self.FirstChapterText = "this is text in the first chapter"
+
         self.FirstChapter = Chapter(self.FirstChapterTitle)
+        self.FirstChapterText = "this is text in the first chapter"
+        self.FirstChapter.addText(self.FirstChapterText)
         self.DocumentWithChapter.addChapter(self.FirstChapter)
 
         self.SecondChapterTitle = "this is the second chapter title"
-        self.SecondChapterText = "this is text in the second chapter"
         self.SecondChapter = Chapter(self.SecondChapterTitle)
         self.DocumentWithChapter.addChapter(self.SecondChapter)
 
@@ -28,7 +29,13 @@ class TestHtmlBody(unittest.TestCase):
         self.assertRegex(
             page, f"<body><h1>{self.FirstChapterTitle}</h1>.*</body>")
 
+    def test_htmlPageHasFirstChapterWithCorrectText(self):
+        page = getHtmlBody(self.DocumentWithChapter)
+        self.assertRegex(
+            page, f".*</h1>{self.FirstChapterText}.*")
+
     def test_htmlPageHasSecondChapter(self):
         page = getHtmlBody(self.DocumentWithChapter)
         self.assertRegex(
-            page, f"<body><h1>.*</h1>.*<h1>{self.SecondChapterTitle}</h1>.*</body>")
+            page,
+            f"<body><h1>.*</h1>.*<h1>{self.SecondChapterTitle}</h1>.*</body>")
