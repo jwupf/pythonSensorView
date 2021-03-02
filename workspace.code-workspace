@@ -24,9 +24,16 @@
 		"version": "2.0.0",
 		"tasks": [
 			{
-				"label": "Run GitHub Action on push",
+				"label": "Run GitHub Action on push(no image cache)",
 				"type": "shell",
 				"command": "act push",
+				"problemMatcher": [],
+				"detail": "This needs act-cli installed, see: https://github.com/nektos/act"
+			},
+			{
+				"label": "Run GitHub Action on push(use cached docker image)",
+				"type": "shell",
+				"command": "act -r push",
 				"problemMatcher": [],
 				"detail": "This needs act-cli installed, see: https://github.com/nektos/act"
 			}
