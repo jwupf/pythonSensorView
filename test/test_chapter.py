@@ -30,3 +30,10 @@ class TestChapter(unittest.TestCase):
         chap.addText(text2)
         self.assertIn(text1, chap.Text)
         self.assertIn(text2, chap.Text)
+
+    def test_canAddList(self):
+        chap = Chapter()
+        data = []
+        data.append("item 1")
+        chap.addList(data)
+        self.assertIn(data, chap.Lists)
